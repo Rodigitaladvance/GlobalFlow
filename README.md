@@ -1,4 +1,4 @@
-# Remotion video
+# GlobalFlow — Remotion video
 
 <p align="center">
   <a href="https://github.com/remotion-dev/logo">
