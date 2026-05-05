@@ -1,8 +1,12 @@
 import "./index.css";
 import { Composition } from "remotion";
+import { z } from "zod";
 import { MyComposition } from "./Composition";
 import { ProductScene, calculateProductMetadata } from "./ProductScene";
-import type { ProductSceneProps } from "./ProductScene";
+
+const productSceneSchema = z.object({
+  country: z.enum(["ES", "CA", "US", "AU", "UK"]),
+});
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -24,7 +28,8 @@ export const RemotionRoot: React.FC = () => {
         fps={30}
         width={1280}
         height={720}
-        defaultProps={{ country: "ES" } as ProductSceneProps}
+        schema={productSceneSchema}
+        defaultProps={{ country: "AU" as const }}
       />
     </>
   );
